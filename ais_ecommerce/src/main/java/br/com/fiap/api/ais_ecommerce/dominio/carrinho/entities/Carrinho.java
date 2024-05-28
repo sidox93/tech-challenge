@@ -1,27 +1,37 @@
 package br.com.fiap.api.ais_ecommerce.dominio.carrinho.entities;
 
+import br.com.fiap.api.ais_ecommerce.dominio.produto.entities.Produto;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
-@Table(name = "tb_carrinho")
+@Table(name = "TB_CARRINHO")
 public class Carrinho {
 
     @Id
+    @Column(name = "ID_CARRINHO", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    //@OneToMany produto
-    //@OneToOne cliente
-
+    @NotNull
+    @Column(name = "QT_QUANTIDADE_PRODUTO",length = 30, nullable = false)
     private Long quantidadeProduto;
+
+    @JsonIgnore
+    @OneToMany(mappedBy="carrinho")
+    private List<Produto> produtos = new ArrayList<>();
 
     public Carrinho() {}
 
-    public Carrinho(Long id, Long quantidadeProduto) {
+    public Carrinho(Long id, Long quantidadeProduto, List<Produto> produtos) {
         this.id = id;
         this.quantidadeProduto = quantidadeProduto;
+        this.produtos = produtos;
     }
 
     public Long getId() {
@@ -38,6 +48,14 @@ public class Carrinho {
 
     public void setQuantidadeProduto(Long quantidadeProduto) {
         this.quantidadeProduto = quantidadeProduto;
+    }
+
+    public List<Produto> getProdutos() {
+        return produtos;
+    }
+
+    public void setProdutos(List<Produto> produtos) {
+        this.produtos = produtos;
     }
 
     @Override
@@ -58,6 +76,7 @@ public class Carrinho {
         return "Carrinho{" +
                 "id=" + id +
                 ", quantidadeProduto=" + quantidadeProduto +
+                ", produtos=" + produtos +
                 '}';
     }
 }

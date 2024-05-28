@@ -1,6 +1,5 @@
 package br.com.fiap.api.ais_ecommerce.dominio.categoria.service;
 
-
 import br.com.fiap.api.ais_ecommerce.dominio.categoria.dto.CategoriaDTO;
 import br.com.fiap.api.ais_ecommerce.dominio.categoria.entities.Categoria;
 import br.com.fiap.api.ais_ecommerce.dominio.categoria.repository.ICategoriaRepository;
@@ -44,6 +43,7 @@ public class CategoriaService {
             Categoria categoria = iCategoriaRepository.getReferenceById(id);
 
            categoria.setNome(categoriaDTO.nome());
+           categoria.setDescricao(categoriaDTO.descricao());
 
             categoria = iCategoriaRepository.save(categoria);
 
@@ -60,14 +60,18 @@ public class CategoriaService {
     private CategoriaDTO toCategoriaDTO(Categoria categoria) {
         return new CategoriaDTO(
                 categoria.getId(),
-                categoria.getNome()
+                categoria.getNome(),
+                categoria.getDescricao(),
+                categoria.getProdutos()
         );
     }
 
     private Categoria toCategoria(CategoriaDTO categoriaDTO) {
         return new Categoria(
                 categoriaDTO.id(),
-                categoriaDTO.nome()
+                categoriaDTO.nome(),
+                categoriaDTO.descricao(),
+                categoriaDTO.produtos()
         );
     }
 }

@@ -1,7 +1,7 @@
 package br.com.fiap.api.ais_ecommerce.dominio.endereco.controller;
 
-import br.com.fiap.api.ais_ecommerce.dominio.endereco.service.EnderecoService;
 import br.com.fiap.api.ais_ecommerce.dominio.endereco.dto.EnderecoDTO;
+import br.com.fiap.api.ais_ecommerce.dominio.endereco.service.EnderecoService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
