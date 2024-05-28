@@ -1,11 +1,15 @@
 package br.com.fiap.api.ais_ecommerce.dominio.cliente.dto;
 
+import br.com.fiap.api.ais_ecommerce.dominio.carrinho.entities.Carrinho;
+import br.com.fiap.api.ais_ecommerce.dominio.endereco.entities.Endereco;
+import br.com.fiap.api.ais_ecommerce.dominio.usuario.entities.Usuario;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.br.CPF;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public record ClienteDTO(
         Long id,
@@ -24,7 +28,13 @@ public record ClienteDTO(
         LocalDate dataNascimento,
 
         @NotBlank(message = "O telefone não pode estar em branco.")
-        String telefone
+        String telefone,
+
+        List<Endereco> enderecos,
+
+        Carrinho carrinho,
+
+        Usuario usuario
 
 ) {
 }

@@ -1,6 +1,5 @@
 package br.com.fiap.api.ais_ecommerce.dominio.produto.service;
 
-
 import br.com.fiap.api.ais_ecommerce.dominio.produto.dto.ProdutoDTO;
 import br.com.fiap.api.ais_ecommerce.dominio.produto.entities.Produto;
 import br.com.fiap.api.ais_ecommerce.dominio.produto.repository.IProdutoRepository;
@@ -70,7 +69,9 @@ public class ProdutoService {
                 produto.getDescricao(),
                 produto.getQuantidade(),
                 produto.getPreco(),
-                produto.getUrlImage()
+                produto.getUrlImage(),
+                produto.getCategoria(),
+                produto.getCarrinho()
         );
     }
 
@@ -81,7 +82,9 @@ public class ProdutoService {
                 produtoDTO.descricao(),
                 produtoDTO.quantidade(),
                 produtoDTO.preco(),
-                produtoDTO.urlImage()
+                produtoDTO.urlImage(),
+                produtoDTO.categoria(),
+                produtoDTO.carrinho()
         );
     }
 }

@@ -59,14 +59,16 @@ public class CarrinhoService {
     private CarrinhoDTO toCarrinhoDTO(Carrinho carrinho) {
         return new CarrinhoDTO(
                 carrinho.getId(),
-                carrinho.getQuantidadeProduto()
+                carrinho.getQuantidadeProduto(),
+                carrinho.getProdutos()
         );
     }
 
     private Carrinho toCarrinho(CarrinhoDTO carrinhoDTO) {
         return new Carrinho(
                carrinhoDTO.id(),
-               carrinhoDTO.quantidadeProduto()
+               carrinhoDTO.quantidadeProduto(),
+                carrinhoDTO.produtos()
         );
     }
 }

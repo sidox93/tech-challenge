@@ -1,5 +1,7 @@
 package br.com.fiap.api.ais_ecommerce.dominio.produto.dto;
 
+import br.com.fiap.api.ais_ecommerce.dominio.carrinho.entities.Carrinho;
+import br.com.fiap.api.ais_ecommerce.dominio.categoria.entities.Categoria;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Positive;
 
@@ -12,6 +14,7 @@ public record ProdutoDTO(
         @NotBlank(message = "O nome não pode estar em branco.")
         String nome,
 
+        @NotBlank(message = "A descricao não pode estar em branco.")
         String descricao,
 
         @Positive(message = "A quantidade do produto tem que ser positivo")
@@ -20,6 +23,10 @@ public record ProdutoDTO(
         @Positive(message = "O valor do produto tem que ser positivo")
         double preco,
 
-        String urlImage
+        String urlImage,
+
+        Categoria categoria,
+
+        Carrinho carrinho
 ) {
 }

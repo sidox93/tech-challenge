@@ -61,7 +61,8 @@ public class UsuarioService {
         return new UsuarioDTO(
                 usuario.getId(),
                 usuario.getUsername(),
-                usuario.getPassword()
+                usuario.getPassword(),
+                usuario.getCliente()
         );
     }
 
@@ -69,7 +70,8 @@ public class UsuarioService {
         return new Usuario(
                 usuarioDTO.id(),
                 usuarioDTO.username(),
-                usuarioDTO.password()
+                usuarioDTO.password(),
+                usuarioDTO.cliente()
         );
     }
 }

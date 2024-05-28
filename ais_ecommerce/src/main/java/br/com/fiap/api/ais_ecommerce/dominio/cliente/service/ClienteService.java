@@ -68,7 +68,10 @@ public class ClienteService {
                 cliente.getEmail(),
                 cliente.getCpf(),
                 cliente.getDataNascimento(),
-                cliente.getTelefone()
+                cliente.getTelefone(),
+                cliente.getEnderecos(),
+                cliente.getCarrinho(),
+                cliente.getUsuario()
         );
     }
 
@@ -79,7 +82,10 @@ public class ClienteService {
                 clienteDTO.email(),
                 clienteDTO.cpf(),
                 clienteDTO.dataNascimento(),
-                clienteDTO.telefone()
+                clienteDTO.telefone(),
+                clienteDTO.enderecos(),
+                clienteDTO.carrinho(),
+                clienteDTO.usuario()
         );
     }
 }
